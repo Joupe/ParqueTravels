@@ -1,0 +1,106 @@
+body{
+    background: #262626;
+}
+.box-area{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.single-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 600px;
+    border-radius: 5px;
+    background-color: #2d2e3b;
+    text-align: center;
+    margin: 30px;
+    padding: 30px;
+}
+.img-area1{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 150px;
+    border: 5px solid #ccccdb;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(../images/lapland-2984828_960_720.png) ;
+}
+.img-area2{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 150px;
+    border: 5px solid #ccccdb;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(../images/Norway/bergen.jpg) ;
+}
+.img-area3{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 150px;
+    border: 5px solid #ccccdb;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(../images/peterhof.jpg) ;
+}
+.img-area4{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 150px;
+    border: 5px solid #ccccdb;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(../images/stockholm-1824368_960_720.png) ;
+}
+
+.header-text{
+    font-size: 55px;
+    font-weight: 500;
+    
+    color:#ddd;
+}
+.img-text{
+    font-family: 'Courier New', Courier, monospace;
+    padding-top: 40px;
+    color:#ddd;
+}
+.img-text p{
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 50px;
+    line-height: 30px;
+    color:#ddd;
+}
+.single-box:hover{
+    background: rgba(24, 14, 70, 0.5);
+}
