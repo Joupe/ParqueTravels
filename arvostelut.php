@@ -25,7 +25,7 @@
           var kaupunki = $("#$arvostelu-kaupunki").val();
           var textarea = $("#$arvostelu-textarea").val();
           // Pitäiskö tässä olla rating 1,2,3?
-          var rating = $("#$arvostelu-rating").val();
+          var rating3 = $("#$arvostelu-rating3").val();
           var submit = $("#$arvostelu-submit").val();
           // On class form-message, load(tiedostoon mihin ladata, )
           $(".form-message").load("arvostelut2.php", {
@@ -34,7 +34,7 @@
               nickname: nickname,
               kaupunki: kaupunki,
               textarea: textarea,
-              rating: rating,
+              rating3: rating3,
               submit: submit
           } );
       });
@@ -101,9 +101,9 @@
           <div class="form-group">
             <label for="rating">Rating:</label>
             <div>
-                <label id="rating3" for="rate1" class="radio-inline"><input type="radio" name="rating" >Rating 3</label>
+                <label id="rating3" for="rate3" class="radio-inline"><input type="radio" name="rating" >Rating 3</label>
                 <label id="rating2" for="rate2" class="radio-inline"><input type="radio" name="rating" >Rating 2</label>
-                <label id="rating1" for="rate3" class="radio-inline"><input type="radio" name="rating" >Rating 1</label>
+                <label id="rating1" for="rate1" class="radio-inline"><input type="radio" name="rating" >Rating 1</label>
             </div>
         </div>
 
