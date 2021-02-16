@@ -156,4 +156,15 @@ a {
     overflow: hidden;
     margin-top: -6px;
   }
+
+  /*--- error classille tulee punaista tekstiä sisälle --*/
+  .form-error {
+    color: red;
+  }
+  .form-success {
+    color: green;
+  }
+  .input-error {
+    box-shadow: 0 0 5px red;
+  }
 }
