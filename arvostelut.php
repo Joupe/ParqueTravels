@@ -80,7 +80,7 @@
       <!-- Content starts -->
 
       <h2>Enter a review for Forssa, Finland</h2>
-      <form action="arvotelut.php" method="POST">
+      <form action="arvostelut2.php" method="POST">
           <div class="form-group">
             <label for="nikki">Nickname:</label>
             <input id="arvostelu-nickname" type="text" class="form-control" />

@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
    // Tarkistetaan onko tyhjiä kenttiä formissa
    if (empty($nickanme)) {
        // class form-error on new.css filessä
-        echo "<span class='form-error'>Fill in nickname!</span>";
+        echo "<span class='form-error'>Fill in a nickname!</span>";
         $errorEmpty = true;
    }
    if (empty($kaupunki)) {
