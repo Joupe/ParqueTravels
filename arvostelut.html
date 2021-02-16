@@ -12,34 +12,33 @@
   <link rel="stylesheet" type="text/css" href="css/new.css">
   <link rel="stylesheet" type="text/css" href="css/finland.css">
   
-  <!-- scripti JQuery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <!--jQuery-->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+ integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
-    $(document).ready(function() {
-      // Katsoo tietyn formin submittaamista, pitää olla ehkä uniikki form nimi
-      $("form").submit(function(event){
-        // disable default actioni formin sisällä
-          event.defaultPrevented();
-          // Kerätä kaikki data inputeista
-          var nickname = $("#$arvostelu-nickname").val();
-          var kaupunki = $("#$arvostelu-kaupunki").val();
-          var textarea = $("#$arvostelu-textarea").val();
-          // Pitäiskö tässä olla rating 1,2,3?
-          var rating = $("#$arvostelu-rating").val();
-          var submit = $("#$arvostelu-submit").val();
-          // On class form-message, load(tiedostoon mihin ladata, )
-          $(".form-message").load("arvostelut2.php", {
-            // Eka value on post name ja seuraava on arvo inputeille
-            // AJAX, loadaa PHP dokumentin ilman, että painaa refresh nappi sivulla
-              nickname: nickname,
-              kaupunki: kaupunki,
-              textarea: textarea,
-              rating: rating,
-              submit: submit
-          } );
-      });
-    });
+    function sendData(lomake){
+        var arvostelu=new Object();
+        arvostelu.nickname=lomake.nickname.value;
+        arvostelu.kaupunki=lomake.kaupunki.value;
+        arvostelu.atextarea=lomake.atextarea.value;
+        arvostelu.rating=lomake.rating.value;
+        
+        var x=JSON.stringify(arvostelu);
+        
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("message").innerHTML = this.responseText;
+          }
+        };
+        xmlhttp.open("POST", "arvostelu2.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("arvostelu=" + x);	
+        
+	  }
+
   </script>
+ 
 </head>
 <body>
 
@@ -83,40 +82,39 @@
       <form action="arvostelut2.php" method="POST">
           <div class="form-group">
             <label for="nikki">Nickname:</label>
-            <input id="arvostelu-nickname" type="text" class="form-control" />
+            <input id="nickname" type="text" name="nickname"  value="" class="form-control" />
           </div>
           <div class="form-group">
             <!-- Valita maa ja sitten alavalikkoon kaupunki -->
-            <select id="arvostelu-kaupunki" name="city">
+            <select id="kaupunki" name="kaupunki">
               <option value="Forssa">Forssa</option>
               <option value="Turku">Turku</option>
-            </select>
+              <option value="Tukholma">Tukholma</option>
+            </select><br>
           </div>
           <div class="form-group">
               <label for="arvostelu">Write a review!</label>
               <div>
-                <textarea id="arvostelu-textarea" name="textarea" rows="5" cols="50" placeholder="Write the review here"></textarea>
+                <textarea id="atextarea" name="atextarea" value="" rows="5" cols="50" placeholder="Write the review here"></textarea>
               </div>
           </div>
           <div class="form-group">
+            <!-- Radio button-->
             <label for="rating">Rating:</label>
             <div>
               <svg><use href="#vihree" ></use></svg>
-                <label for="rate3" class="radio-inline"><input id="rating3" type="radio" name="rating" >Rating 3</label>
+                <label class="radio-inline"><input type="radio" id="rating" name="rating" value="3">Rating 3</label>
                 <svg><use href="#keltainen" ></use></svg>
-                <label  for="rate2" class="radio-inline"><input type="radio" id="rating2" name="rating" >Rating 2</label>
+                <label class="radio-inline"><input type="radio" id="rating" name="rating" value="2">Rating 2</label>
                 <svg><use href="#punainen" ></use></svg>
-                <label  for="rate1" class="radio-inline"><input type="radio" id="rating1" name="rating" >Rating 1</label>
+                <label class="radio-inline"><input type="radio" id="rating" name="rating" value="1">Rating 1</label>
             </div>
         </div>
 
-        <button id="arvostelu-submit" type="submit" name="submit" class="btn btn-primary" style="background-color: #2d2e3b;">Submit</button>
-        <p class="form-message"></p>
+        <button id="ok" type="button" name="ok" value="OK" onclick='sendData(this.form);' class="btn btn-primary" style="background-color: #2d2e3b;">Submit</button>
+        <p id="message"></p>
       </form>
-
-
-
-    <h1>Testi SVG:llä emojit</h1>
+    
     
     <!-- Vihree hymiö -->
 
@@ -197,10 +195,8 @@
 
   <!-- End Footer -->
 
-  <!--jQuery-->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <!--JavaScripot Library-->
+  
+  <!--JavaScript Library-->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
