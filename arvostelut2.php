@@ -2,16 +2,16 @@
 
 // Tarkistaa onko submit nappi painettu eli onko post metodia submit
 if (isset($_POST['submit'])) {
-   $nickanme = $_POST['nickname'];
-   $kaupunki = $_POST['kaupunki'];
+   $nickanme = $_POST['nickname']; // undefined index
+   $kaupunki = $_POST['kaupunki']; // undefined index
    $textarea = $_POST['textarea'];
-   $rating3 = $_POST['rating3'];
+   $rating = $_POST['rating']; // undefined index
 
    // Deafaultisti on false
    $errorEmpty = false;
    
    // Tarkistetaan onko tyhjiä kenttiä formissa
-   if (empty($nickanme)) {
+   if (empty($nickanme)) { // ei toimi
        // class form-error on new.css filessä
         echo "<span class='form-error'>Fill in a nickname!</span>";
         $errorEmpty = true;
@@ -42,8 +42,8 @@ else{
 <script>
     // Tarkistetaan data
 
-    // Poistaa input-error vaikutuksen teksikentästä
-    $("#arvostelu-nickname, arvostelu-kaupunki, arvostelu-textarea, arvostelu-rating").removeClass("input-error");
+    // Poistaa input-error vaikutuksen teksikentästä, otin arvostelu-kaupunki pois
+    $("#arvostelu-nickname, arvostelu-textarea, arvostelu-rating").removeClass("input-error");
 
     // JavaSCript variable on yhtä suuri kuin PHP variable
     var errorEmpty = "<?php echo $errorEmpty; ?>";
