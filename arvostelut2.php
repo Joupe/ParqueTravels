@@ -2,10 +2,10 @@
 
 // Tarkistaa onko submit nappi painettu eli onko post metodia submit
 if (isset($_POST['submit'])) {
-   $nickanme = $_POST['nickname']; // undefined index
+   $nickanme = (isset($_POST['nickname'])); // undefined index
    $kaupunki = $_POST['kaupunki']; // undefined index
-   $textarea = $_POST['textarea'];
-   $rating = $_POST['rating']; // undefined index
+   $textarea = (isset($_POST['textarea']));
+   $rating = (isset($_POST['rating'])); // undefined index
 
    // Deafaultisti on false
    $errorEmpty = false;

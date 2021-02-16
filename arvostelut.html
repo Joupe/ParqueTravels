@@ -101,8 +101,11 @@
           <div class="form-group">
             <label for="rating">Rating:</label>
             <div>
+              <svg><use href="#vihree" ></use></svg>
                 <label for="rate3" class="radio-inline"><input id="rating3" type="radio" name="rating" >Rating 3</label>
+                <svg><use href="#keltainen" ></use></svg>
                 <label  for="rate2" class="radio-inline"><input type="radio" id="rating2" name="rating" >Rating 2</label>
+                <svg><use href="#punainen" ></use></svg>
                 <label  for="rate1" class="radio-inline"><input type="radio" id="rating1" name="rating" >Rating 1</label>
             </div>
         </div>
@@ -116,7 +119,9 @@
     <h1>Testi SVG:llä emojit</h1>
     
     <!-- Vihree hymiö -->
-    <svg width="100" height="100">
+
+    <svg>
+      <symbol id="vihree" width="100" height="100">
         <!-- cx ja cy ovat ympyrän keskipisteet. r on säde(radius). Stroke on ääriviiva. -->
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="green" />
         <!-- Rx ja ry ovat leveys ja pituus ellipsille. -->
@@ -127,10 +132,12 @@
         <!-- M on startti piste, Q on referenssi pisteet. Quadratic curve -->
         <path class="suu" d="M 30,60 Q 47,85 70,60" style="stroke:black;stroke-width:3; fill:transparent;" />
         Sorry, your browser does not support inline SVG.
+      </symbol>
      </svg> 
 
      <!-- Keltainen hymiö -->
-    <svg width="100" height="100">
+    <svg >
+      <symbol id="keltainen" width="100" height="100">
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow" />
         <ellipse cx="40" cy="40" rx="5" ry="8"
         style="fill:black;" />
@@ -138,10 +145,12 @@
         style="fill:black;" />
         <line class="suu" x1="30" y1="65" x2="70" y2="65" style="stroke:rgb(0, 0, 0);stroke-width:3" />
         Sorry, your browser does not support inline SVG.
+      </symbol>
      </svg> 
 
      <!-- Punainen hymiö -->
-     <svg width="100" height="100">
+     <svg>
+       <symbol id="punainen" width="100" height="100">
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
         <ellipse cx="40" cy="40" rx="5" ry="8"
         style="fill:black;" />
@@ -150,6 +159,7 @@
         <!-- M on startti piste, Q on referenssi pisteet. Quadratic curve -->
         <path class="suu" d="M 30,70 Q 47,45 70,70" style="stroke:black;stroke-width:3; fill:transparent;" />
         Sorry, your browser does not support inline SVG.
+      </symbol>
      </svg> 
 
 <!-- Content ends-->
