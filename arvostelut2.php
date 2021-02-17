@@ -1,14 +1,21 @@
- <?php
+<?php
 
-$message="Toimii";
 
+// Virheilmoitus, jos ei saada $_POST['arvostelu']
 $json=$_POST['arvostelu'];
-$arvostelu=json_decode($json, false);
 
-$nickname=$nickname->nickname;
-$kaupunki=$kaupunki->kaupunki;
-$atextarea=$atextarea->atextarea;
-$rating=$rating->rating;
+$arvostelu=json_decode($json, false); 
+
+$nickname=$arvostelu->nickname;
+$kaupunki=$arvostelu->kaupunki;
+$atextarea=$arvostelu->atextarea;
+$rating=$arvostelu->rating;
+
+// print($json);
+print($nickname);
+print($kaupunki);
+print($atextarea);
+print($rating);
 
 // Tietokantaan yhteys
 $yhteys = mysqli_connect("localhost","trtkp20a3","trtkp20a3passwd");
@@ -16,7 +23,6 @@ $yhteys = mysqli_connect("localhost","trtkp20a3","trtkp20a3passwd");
 // Tarkistetaan tietokannan yhteys
 if (!$yhteys) {
     die("Yhteyden muodostaminen epäonnistui: " .mysql_connect_error());
-    print "Yhteyden muodostaminen epäonnistui";
     return;
 }
 
@@ -25,14 +31,13 @@ $tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
 
 if(!$tietokanta) {
     die("Tietokannan valinta epäonnistui: " .mysql_connect_error());
-    print "Tietokannan valinta epäonnistui"
-    return;
+    exit;
 }
 
 // Tarkistetaan onko arvot tyhjiä
 if (empty($nickname) || empty($kaupunki) || empty($atextarea) || empty($rating)) {
    print "Täytä kaikki tiedot.";
-   return;
+   exit;
 }
 
 
@@ -46,9 +51,8 @@ mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 // Suljetaan SQL-yhteys
 mysqli_close($yhteys);
-print "Tiedot ovat tallennettu tietokantaan.";
-echo "Tiedot ovat tallennettu!";
-print $message;
+
+print "Tiedot ovat tallennettu tietokantaan!";
 
 exit;
     

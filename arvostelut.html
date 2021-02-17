@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Frequently Asked Questions about our travels.">
   <meta name="author" content="Waltteri Grek, Joona Heinonen, Joel Kailanto,Erik Kihn">
-  <title>Arvostelut demo sivu</title>
+  <title>Arvostelut demo sivu, AJAX</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -16,29 +16,32 @@
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
-    function sendData(lomake){
+    function sendData(form){
+      // tehdään olio
         var arvostelu=new Object();
-        arvostelu.nickname=lomake.nickname.value;
-        arvostelu.kaupunki=lomake.kaupunki.value;
-        arvostelu.atextarea=lomake.atextarea.value;
-        arvostelu.rating=lomake.rating.value;
+        // olion attribuutteja
+        arvostelu.nickname=form.nickname.value;
+        arvostelu.kaupunki=form.kaupunki.value;
+        arvostelu.atextarea=form.atextarea.value;
+        arvostelu.rating=form.rating.value;
         
+        // Muodostetaan JSON-merkkijono
         var x=JSON.stringify(arvostelu);
 
-        xmlhttp.open("POST", "arvostelut2.php", true);
-        
+        // Hoitaa request response loopin
         xmlhttp = new XMLHttpRequest();
-
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-        xmlhttp.onreadystatechange = function() { // Call a function when the state changes.
+        
+        // Call a function when the state changes.
+        xmlhttp.onreadystatechange = function() { 
           if (this.readyState == 4 && this.status == 200) {
-            // Request finished. Do processing here.
+            // Request valmista. Sitten processoidaan. Palauttaa php filen inputit message id:lle html:ssä. 
             document.getElementById("message").innerHTML = this.responseText;
           }
         };
-         
-        xmlhttp.send("arvostelu=" + x);	    
+        // POST muodossa lähetetään
+        xmlhttp.open("POST", "arvostelut2.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("arvostelu=" + x); // arvostelu on se avain ja x on JSON-stringi, joka läheteään eteenpäin
 	  }
 
   </script>
@@ -83,17 +86,25 @@
       <!-- Content starts -->
 
       <h2>Enter a review for a city</h2>
-      <form action="arvostelut2.php" method="POST">
+      <form id="arvosteluarvot">
           <div class="form-group">
-            <label for="nikki">Nickname:</label>
-            <input id="nickname" type="text" name="nickname"  value="" class="form-control" />
+            <label>Nickname:</label>
+            <input name="nickname" id="nickname" type="text"  value="" class="form-control" />
           </div>
           <div class="form-group">
             <!-- Valita maa ja sitten alavalikkoon kaupunki? -->
             <select id="kaupunki" name="kaupunki">
               <option value="Forssa">Forssa
-              <option value="Turku">Turku
+              <option value="Hervanta">Turku
+              <option value="Korso">Korso
               <option value="Tukholma">Tukholma
+              <option value="Gävle">Gävle
+              <option value="Stockholm">Stockholm
+              <option value="Bergen">Bergen
+              <option value="Oslo">Oslo  
+              <option value="Moscow">Moscow
+              <option value="St.Petersburg">St.Petersburg
+              <option value="Siberia">Siberia
             </select><br>
           </div>
           <div class="form-group">
@@ -115,8 +126,10 @@
             </div>
         </div>
         <input type='button' name='ok' value='OK' onclick='sendData(this.form);' class="btn btn-primary" style="background-color: #2d2e3b;">
-        <p id="message"></p>
+        
       </form>
+
+      <p id="message"></p>
     
     
     <!-- Vihree hymiö -->
