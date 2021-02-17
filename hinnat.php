@@ -32,6 +32,7 @@ if (!$tietokanta) {
 print $error;
 return;
 }
+
 $tulos=mysqli_query($yhteys, "select * from parketti_hinnat where pituus = '".$holidaytype."' and kaupunki = '".$city."'");
 
 while ($rivi=mysqli_fetch_object($tulos)){

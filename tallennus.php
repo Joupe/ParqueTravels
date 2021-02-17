@@ -11,7 +11,7 @@ $kaupunki=$_POST["inputCity"];
 $postinumero=$_POST["inputZip"];
 $email=$_POST["inputEmail4"];
 print("$kohdemaa, $kohdekaupunki, $matkan_pituus, $etunimi, $sukunimi, $osoite, $kaupunki, $postinumero, $email");
-/*
+
 $yhteys=mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
  if (!$yhteys){
  	die("Unable to connect".mysqli_error());
@@ -41,5 +41,5 @@ if(isset($_POST["submitf"])){
     mysqli_stmt_close($stmt);
     mysqli_close($yhteys);
 }
-exit;*/
+exit;
 ?>
