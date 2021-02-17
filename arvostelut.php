@@ -135,7 +135,7 @@
 
     <h2>Arvostelut</h2>
 
-    <table>
+    <table border="1px">
         <tr>
             <th>Nickname</th>
             <th>Destination</th>
