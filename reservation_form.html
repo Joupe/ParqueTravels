@@ -49,13 +49,12 @@
   <!-- navbar -->
 
   <form action="tallennus.php" method="post">
-  <div class="container features" style="background-color: #afbbff;">
-    <div class="row">
+    <div class="container features" style="background-color: #afbbff;">
+      <div class="row">
 
-      <div class="col-lg-6 col-md-6 col-sm-6">
-        <h3 class="form-title">Select the country</h3>
-<<<<<<< HEAD
-        <select name="country" id="country" class="custom-select custom-select-lg mb-3" onchange="resetcities();">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <h3 class="form-title">Select the country</h3>
+          <select name="country" id="country" class="custom-select custom-select-lg mb-3" onchange="resetcities();">
             <option>Country</option>
             <option value="Sweden" data-target="Sweden" id="Sweden">Sweden</option>
             <option value="Norway" data-target="Norway" id="Norway">Norway</option>
@@ -66,60 +65,42 @@
           <br>
           <div style="display:none" id="country-Sweden">
             <h6 class="form-title">Select the city</h6>
-            <select name="Sweden" id="swedencity" class="custom-select custom-select-lg mb-3">  
-            <option id="swedendefault">City</option>   
-            <option value="Stockholm" >Stockholm</option>       
-=======
+            <select name="Sweden" id="swedencity" class="custom-select custom-select-lg mb-3">
+              <option id="swedendefault">City</option>
+              <option value="Stockholm">Stockholm</option>
+              <option value="Gävle">Gävle</option>
+            </select>
+          </div>
 
-        <select name="country" id="country" class="custom-select custom-select-lg mb-3">
-          <option>Country</option>
-          <option value="Sweden" data-target="Sweden" id="Sweden">Sweden</option>
-          <option value="Norway" data-target="Norway" id="Norway">Norway</option>
-          <option value="Russia" data-target="Russia" id="Russia">Russia</option>
-          <option value="Finland" data-target="Finland" id="Finland">Finland</option>
-        </select>
-        <br>
-        <br>
-        <div style="display:none" id="country-Sweden">
-          <h6 class="form-title">Select the city</h6>
-          <select name="Sweden" class="custom-select custom-select-lg mb-3">
-            <option>City</option>
-            <option value="Stockholm">Stockholm</option>
->>>>>>> 9151a31567532ea259dbab41de4c11a8a3c53813
-            <option value="Gävle">Gävle</option>
-          </select>
-        </div>
-
-<<<<<<< HEAD
           <div style="display:none" id="country-Norway">
             <h6 class="form-title">Select the city</h6>
-             <select name="Norway" id="norwaycity" class="custom-select custom-select-lg mb-3"> 
-                <option id="norwaydefault">City</option>    
-             <option value="Oslo">Oslo</option>       
-             <option value="Bergen">Bergen</option>
+            <select name="Norway" id="norwaycity" class="custom-select custom-select-lg mb-3">
+              <option id="norwaydefault">City</option>
+              <option value="Oslo">Oslo</option>
+              <option value="Bergen">Bergen</option>
             </select>
-        </div>
+          </div>
 
-         <div style="display:none" id="country-Russia">
-              <h6 class="form-title">Select the city</h6>
-             <select name="Russia" id="russiacity" class="custom-select custom-select-lg mb-3">  
-                <option id="russiadefault">City</option>   
-             <option value="Moscow" >Moscow</option>       
-             <option value="Siberia">Siberia</option>
-             <option value="St. Petersburg">St. Petersburg</option>
-             </select>
-            </div>
-
-         <div style="display:none" id="country-Finland">
+          <div style="display:none" id="country-Russia">
             <h6 class="form-title">Select the city</h6>
-            <select name="Finland" id="finlandcity" class="custom-select custom-select-lg mb-3">  
-            <option id="finlanddefault">City</option>   
-            <option value="Forssa" >Forssa</option>       
-            <option value="Hervanta">Hervanta</option>
-            <option value="Korso">Korso</option>
+            <select name="Russia" id="russiacity" class="custom-select custom-select-lg mb-3">
+              <option id="russiadefault">City</option>
+              <option value="Moscow">Moscow</option>
+              <option value="Siberia">Siberia</option>
+              <option value="St. Petersburg">St. Petersburg</option>
             </select>
-            </div>
-         
+          </div>
+
+          <div style="display:none" id="country-Finland">
+            <h6 class="form-title">Select the city</h6>
+            <select name="Finland" id="finlandcity" class="custom-select custom-select-lg mb-3">
+              <option id="finlanddefault">City</option>
+              <option value="Forssa">Forssa</option>
+              <option value="Hervanta">Hervanta</option>
+              <option value="Korso">Korso</option>
+            </select>
+          </div>
+
           <br>
           <br>
           <h3 class="form-title">Length of the vacation</h3>
@@ -130,91 +111,51 @@
           <div class="custom-control custom-radio">
             <input type="radio" id="customRadio2" name="customRadio" value="7" class="custom-control-input">
             <label class="custom-control-label" for="customRadio2">7 days relaxing vacation.</label>
-=======
-        <div style="display:none" id="country-Norway">
-          <h6 class="form-title">Select the city</h6>
-          <select name="Norway" class="custom-select custom-select-lg mb-3">
-            <option>City</option>
-            <option value="Oslo">Oslo</option>
-            <option value="Bergen">Bergen</option>
-          </select>
+            <p id="hinta"></p>
+          </div>
         </div>
 
-        <div style="display:none" id="country-Russia">
-          <h6 class="form-title">Select the city</h6>
-          <select name="Russia" class="custom-select custom-select-lg mb-3">
-            <option>City</option>
-            <option value="Moscow">Moscow</option>
-            <option value="Siberia">Siberia</option>
-            <option value="St. Petersburg">St. Petersburg</option>
-          </select>
-        </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <h3 class="form-title">Your personal information</h3>
+            <form>
+              <div class="form-row">
+                <div class="col">
+                  <label for="inputFName">First name</label>
+                  <input type="text" class="form-control" id="inputFName" placeholder="First name">
+                </div>
+                <div class="col">
+                  <label for="inputLName">Last name</label>
+                  <input type="text" class="form-control" id="inputLName" placeholder="Last name">
+                </div>
+              </div>
 
-        <div style="display:none" id="country-Finland">
-          <h6 class="form-title">Select the city</h6>
-          <select name="Finland" class="custom-select custom-select-lg mb-3">
-            <option>City</option>
-            <option value="Forssa">Forssa</option>
-            <option value="Hervanta">Hervanta</option>
-            <option value="Korso">Korso</option>
-          </select>
-        </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="PÃ¤Ã¤katu 15">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Tampere">
+                </div>
 
-        <br>
-        <br>
-        <h3 class="form-title">Length of the vacation</h3>
-        <div class="custom-control custom-radio">
-          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="4d">
-          <label class="custom-control-label" for="customRadio1">4 days compact trip.</label>
-        </div>
-
-        <div class="custom-control custom-radio">
-          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="7d">
-          <label class="custom-control-label" for="customRadio2">7 days relaxing vacation.</label>
+                <div class="form-group col-md-2">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control" name="inputZip" id="inputZip" placeholder="33101">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" name="inputEmail4" id="inputEmail4"
+                    placeholder="example@example.com">
+                </div>
+              </div>
+              <input type="submit" class="btn btn-primary" name="submitf" value="Submit"
+                style="background-color: #2d2e3b;">
+            </div>
         </div>
       </div>
-
-
-      <div class="col-lg-6 col-md-6 col-sm-6">
-        <h3 class="form-title">Your personal information</h3>
-
-        <div class="form-row">
-          <div class="col">
-            <label for="inputFName">First name</label>
-            <input type="text" class="form-control" name="inputFName" id="inputFName" placeholder="First name">
-          </div>
-          <div class="col">
-            <label for="inputLName">Last name</label>
-            <input type="text" class="form-control" name="inputLName" id="inputLName" placeholder="Last name">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="inputAddress">Address</label>
-          <input type="text" class="form-control" name="inputAddress" id="inputAddress" placeholder="Pääkatu 15">
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" name="inputCity" id="inputCity" placeholder="Tampere">
->>>>>>> 9151a31567532ea259dbab41de4c11a8a3c53813
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" name="inputZip" id="inputZip" placeholder="33101">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" name="inputEmail4" id="inputEmail4"
-              placeholder="example@example.com">
-          </div>
-        </div>
-        <input type="submit" class="btn btn-primary" name="submitf" value="Submit" style="background-color: #2d2e3b;">
-      </div>
-    </div>
-  </div>
   </form>
 
   <!-- Footer -->
@@ -259,53 +200,50 @@
                 });
               });
             </script>
-<<<<<<< HEAD
             <script>
-              $(document).ready(function(){
-                $("#customRadio1").click(function(){
+              $(document).ready(function () {
+                $("#customRadio1").click(function () {
                   $.post("hinnat.php",
-                  {
-                    country:$("#country").val(),
-                    sweden:$("#swedencity").val(),
-                    norway:$("#norwaycity").val(),
-                    russia:$("#russiacity").val(),
-                    finland:$("#finlandcity").val(),
-                    holidaytype:$(this).val()
-                 },
-                  function(data,status){
-                    $("#tulos").html(data);
-                  });
+                    {
+                      country: $("#country").val(),
+                      sweden: $("#swedencity").val(),
+                      norway: $("#norwaycity").val(),
+                      russia: $("#russiacity").val(),
+                      finland: $("#finlandcity").val(),
+                      holidaytype: $(this).val()
+                    },
+                    function (data, status) {
+                      $("#hinta").html(data);
+                    });
                 });
               });
-              </script>
-              <script>
-              $(document).ready(function(){
-                $("#customRadio2").click(function(){
+            </script>
+            <script>
+              $(document).ready(function () {
+                $("#customRadio2").click(function () {
                   $.post("hinnat.php",
-                  {
-                    country:$("#country").val(),
-                    sweden:$("#swedencity").val(),
-                    norway:$("#norwaycity").val(),
-                    russia:$("#russiacity").val(),
-                    finland:$("#finlandcity").val(),
-                    holidaytype:$(this).val()
-                 },
-                  function(data,status){
-                    $("#tulos").html(data);
-                  });
+                    {
+                      country: $("#country").val(),
+                      sweden: $("#swedencity").val(),
+                      norway: $("#norwaycity").val(),
+                      russia: $("#russiacity").val(),
+                      finland: $("#finlandcity").val(),
+                      holidaytype: $(this).val()
+                    },
+                    function (data, status) {
+                      $("#hinta").html(data);
+                    });
                 });
               });
-              </script>
-              <script>
-                function resetcities(){
-                  finlanddefault.selected = true;
-                  norwaydefault.selected = true;
-                  swedendefault.selected = true;
-                  russiadefault.selected = true;
-                }
-              </script>
-=======
->>>>>>> 9151a31567532ea259dbab41de4c11a8a3c53813
+            </script>
+            <script>
+              function resetcities() {
+                finlanddefault.selected = true;
+                norwaydefault.selected = true;
+                swedendefault.selected = true;
+                russiadefault.selected = true;
+              }
+            </script>
 
           </div>
         </div>

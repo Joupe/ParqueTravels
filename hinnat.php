@@ -35,7 +35,7 @@ return;
 $tulos=mysqli_query($yhteys, "select * from parketti_hinnat where pituus = '".$holidaytype."' and kaupunki = '".$city."'");
 
 while ($rivi=mysqli_fetch_object($tulos)){
-    print "$rivi->hinta";
+    print "Price : $rivi->hinta €";
 }
 
 mysqli_close($yhteys);
