@@ -89,7 +89,7 @@
       <form id="arvosteluarvot">
           <div class="form-group">
             <label>Nickname:</label>
-            <input name="nickname" id="nickname" type="text"  value="" class="form-control" />
+            <input name="nickname" id="nickname" type="text"  value="" class="form-control" cols="50" />
           </div>
           <div class="form-group">
             <!-- Valita maa ja sitten alavalikkoon kaupunki? -->
@@ -132,39 +132,49 @@
 
       <p id="message"></p>
 
-      <?php
-// Koodin tarkoitus on ottaa tietokannasta arvostelut ja näyttää websivulle mitä siellä on
 
-// Tietokantaan yhteys
-$yhteys=mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
+    <h2>Arvostelut</h2>
 
-// Tarkistetaan tietokannan yhteys
-if (!$yhteys) {
-    print "404";
+    <table>
+        <tr>
+            <th>Nickname</th>
+            <th>Destination</th>
+            <th>Review</th>
+            <th>Grade</th>
+        </tr>
+    <?php
+    // Koodin tarkoitus on ottaa tietokannasta arvostelut ja näyttää websivulle mitä siellä on
+
+    // Tietokantaan yhteys
+    $yhteys=mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
+
+    // Tarkistetaan tietokannan yhteys
+    if (!$yhteys) {
+        print "404";
+        }
+
+    // Tietokannan valitseminen
+    $tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
+
+    if(!$tietokanta) {
+        die("Tietokannan valinta epäonnistui: " .mysql_connect_error());
+        exit;
     }
+    // echo "Tietokanta on OK."; // debug
 
-// Tietokannan valitseminen
-$tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
+    $sql ="select * from parketti_arvostelut";
+    $tulos=mysqli_query($yhteys, $sql);
 
-if(!$tietokanta) {
-    die("Tietokannan valinta epäonnistui: " .mysql_connect_error());
-    exit;
-}
-// echo "Tietokanta on OK."; // debug
-
-
-$tulos=mysqli_query($yhteys, "select * from parketti_arvostelut");
-
-while ($rivi=mysqli_fetch_object($tulos)) {
-	print "<center>Nickname: $rivi->nimimerkki<br> Kohdekaupunki: $rivi->kohdekaupunki<br> Arvostelu: $rivi->arvostelu <br> Arvosana: $rivi->arvosana<br><br></center>";
-	
-}
+    while ($rivi=mysqli_fetch_assoc($tulos)) {
+      echo "<tr><td>". $rivi["nimimerkki"]. "</td><td>". $rivi["kohdekaupunki"]."</td><td>". 
+        $rivi["arvostelu"]. "</td><td>". $rivi["arvosana"]. "</td></tr>";
+        }
+        echo "</table>"; 
 
 
-mysqli_close($yhteys);
+    mysqli_close($yhteys);
 
-
-?>
+    ?>
     
     
     <!-- Vihree hymiö -->

@@ -9,7 +9,13 @@
 <body>
 
 <h2>Arvostelut demo tietokannasta</h2>
-
+<table>
+    <tr>
+        <th>Nickname</th>
+        <th>Destination</th>
+        <th>Review</th>
+        <th>Grade</th>
+    </tr>
 <?php
 // Koodin tarkoitus on ottaa tietokannasta arvostelut ja näyttää websivulle mitä siellä on
 
@@ -33,35 +39,24 @@ if(!$tietokanta) {
 $sql ="select * from parketti_arvostelut";
 $tulos=mysqli_query($yhteys, $sql);
 
-while ($rivi=mysqli_fetch_object($tulos)) {
-	print "<center>Nickname: $rivi->nimimerkki<br> Kohdekaupunki: $rivi->kohdekaupunki<br> Arvostelu: $rivi->arvostelu <br> Arvosana: $rivi->arvosana<br><br></center>";
-}
+// if rivejä enemmän kuin  niin tulee taulukko
+while ($rivi=mysqli_fetch_assoc($tulos)) {
+	echo "<tr><td>". $rivi["nimimerkki"]. "</td><td>". $rivi["kohdekaupunki"]."</td><td>". 
+    $rivi["arvostelu"]. "</td><td>". $rivi["arvosana"]. "</td></tr>";
+    }
+    echo "</table>";
+ // else{
+ // echo("0 results from the database")   
+ // }
 
 
-// mysqli_close($yhteys);
-
-
+mysqli_close($yhteys);
 
 ?>
+
 <h2>Testi table</h2>
 
-<table>
-    <tr>
-        <th>Nickname</th>
-        <th>Destination</th>
-        <th>Review</th>
-        <th>Rating (0-3)</th> 
-    </tr>
-    <?php while($rivi = mysqli_fetch_array($tulos)) { ?>
-        <tr>
-            <td><?php echo $rivi["nimimerkki"] ?></td>
-            <td><?php echo $rivi["kohdekaupunki"] ?></td>
-            <td><?php echo $rivi["arvostelu"] ?></td>
-            <td><?php echo $rivi["arvosana"] ?></td>
-        </tr>
 
-    <?php } ?>
-</table>
     
 </body>
 </html>
