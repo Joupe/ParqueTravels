@@ -12,10 +12,10 @@ $atextarea=$arvostelu->atextarea;
 $rating=$arvostelu->rating;
 
 // print($json);
-print($nickname);
-print($kaupunki);
-print($atextarea);
-print($rating);
+// print($nickname);
+// print($kaupunki);
+// print($atextarea);
+// print($rating);
 
 // Tietokantaan yhteys
 $yhteys = mysqli_connect("localhost","trtkp20a3","trtkp20a3passwd");

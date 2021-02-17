@@ -8,17 +8,18 @@
 </head>
 <body>
 
+<h2>Arvostelut demo tietokannasta</h2>
+
 <?php
 // Koodin tarkoitus on ottaa tietokannasta arvostelut ja näyttää websivulle mitä siellä on
 
 // Tietokantaan yhteys
-$yhteys = mysqli_connect("localhost","trtkp20a3","trtkp20a3passwd");
+$yhteys=mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
 
 // Tarkistetaan tietokannan yhteys
 if (!$yhteys) {
-    die("Yhteyden muodostaminen epäonnistui: " .mysql_connect_error());
-    return;
-}
+    print "404";
+    }
 
 // Tietokannan valitseminen
 $tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
@@ -27,21 +28,40 @@ if(!$tietokanta) {
     die("Tietokannan valinta epäonnistui: " .mysql_connect_error());
     exit;
 }
-echo "Tietokanta on OK."; // debug
+// echo "Tietokanta on OK."; // debug
 
-// Query tietokannalle
-$tulos=mysqli_query("select * from parketti_arvostelut");
+$sql ="select * from parketti_arvostelut";
+$tulos=mysqli_query($yhteys, $sql);
 
-while ($rivi=mysqli_fetch_object($tulos)){
-    print "nimimerkki=$rivi->nimimerkki kohdekaupunki=$rivi->kohdekaupunki arvostelu=$rivi->arvostelu arvosana=$rivi->arvosana <br>"
+while ($rivi=mysqli_fetch_object($tulos)) {
+	print "<center>Nickname: $rivi->nimimerkki<br> Kohdekaupunki: $rivi->kohdekaupunki<br> Arvostelu: $rivi->arvostelu <br> Arvosana: $rivi->arvosana<br><br></center>";
 }
 
-// Suljetaan statement
-mysqli_stmt_close($stmt);
-// Suljetaan SQL-yhteys
-mysqli_close($yhteys);
+
+// mysqli_close($yhteys);
+
+
 
 ?>
+<h2>Testi table</h2>
+
+<table>
+    <tr>
+        <th>Nickname</th>
+        <th>Destination</th>
+        <th>Review</th>
+        <th>Rating (0-3)</th> 
+    </tr>
+    <?php while($rivi = mysqli_fetch_array($tulos)) { ?>
+        <tr>
+            <td><?php echo $rivi["nimimerkki"] ?></td>
+            <td><?php echo $rivi["kohdekaupunki"] ?></td>
+            <td><?php echo $rivi["arvostelu"] ?></td>
+            <td><?php echo $rivi["arvosana"] ?></td>
+        </tr>
+
+    <?php } ?>
+</table>
     
 </body>
 </html>

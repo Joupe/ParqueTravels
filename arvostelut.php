@@ -98,13 +98,13 @@
               <option value="Hervanta">Turku
               <option value="Korso">Korso
               <option value="Tukholma">Tukholma
-              <option value="Gävle">Gävle
+              <option value="Gavle">Gävle
               <option value="Stockholm">Stockholm
               <option value="Bergen">Bergen
               <option value="Oslo">Oslo  
               <option value="Moscow">Moscow
               <option value="Siberia">Siberia
-              <option value="St.Petersburg">St.Petersburg
+              <option value="St_Petersburg">St.Petersburg
               
             </select><br>
           </div>
@@ -131,6 +131,40 @@
       </form>
 
       <p id="message"></p>
+
+      <?php
+// Koodin tarkoitus on ottaa tietokannasta arvostelut ja näyttää websivulle mitä siellä on
+
+// Tietokantaan yhteys
+$yhteys=mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
+
+// Tarkistetaan tietokannan yhteys
+if (!$yhteys) {
+    print "404";
+    }
+
+// Tietokannan valitseminen
+$tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
+
+if(!$tietokanta) {
+    die("Tietokannan valinta epäonnistui: " .mysql_connect_error());
+    exit;
+}
+// echo "Tietokanta on OK."; // debug
+
+
+$tulos=mysqli_query($yhteys, "select * from parketti_arvostelut");
+
+while ($rivi=mysqli_fetch_object($tulos)) {
+	print "<center>Nickname: $rivi->nimimerkki<br> Kohdekaupunki: $rivi->kohdekaupunki<br> Arvostelu: $rivi->arvostelu <br> Arvosana: $rivi->arvosana<br><br></center>";
+	
+}
+
+
+mysqli_close($yhteys);
+
+
+?>
     
     
     <!-- Vihree hymiö -->
