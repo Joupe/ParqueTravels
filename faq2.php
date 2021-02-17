@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Frequently Asked Questions about our travels.">
   <meta name="author" content="Waltteri Grek, Joona Heinonen, Joel Kailanto,Erik Kihn">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title>Frequently Asked Questions</title>
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
@@ -60,12 +59,26 @@
       <h3>Ask anything from ParqueTravels:</h3> <br><input type="text" name="kysymys" value='' size="75"><br>
       <br>
       <input type="submit" name="ok" value="Send"><br>
-      
+
       </form>
+	<h3>You asked, we answered:</h3>
+<br>
+<?php
+$yhteys=mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
+if (!$yhteys) {
+print "404";
+}
+$tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
 
+$tulos=mysqli_query($yhteys, "select * from parketti_kysjavas");
 
+while ($rivi=mysqli_fetch_object($tulos)) {
+	
+	print "<center>Q: $rivi->kysmari<br> A: $rivi->vastaus<br><br></center>";
+	
+}
 
-  
+?> 
   <!-- Content ends -->
 
   <!-- Footer -->
@@ -85,31 +98,7 @@
         <div class="col-lg-4 col-md-4 col-sm-4">
           <h2 class="feature-title">Email</h2>
           <p class="footpara">contact@parquetravels.ogr</p>
-          <h2 class="feature-title">Join our mailing list!</h2>
-        <div style="text-align: center;">
-        <form>
-         <input id='email' type='text' name='email' placeholder='Your email here.' value=''>
-          </form>
-        	<br>
-          <button name='submit' id='submit'>Submit</button>
-
-          <p class="footpara" id="tulos"></p>
-
-          <script>
-            $(document).ready(function(){
-              $("#submit").click(function(){
-                $.post("postilista.php",
-                {
-                  email:$("#email").val()
-               },
-                function(data,status){
-                  $("#tulos").html(data);
-                });
-              });
-            });
-            </script>
-            
-          </div>
+          
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4"> 
           <h2 class="feature-title">Social Media</h2>  
@@ -126,7 +115,8 @@
   <!-- End Footer -->
 
   <!--jQuery-->
-
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <!--JavaScripot Library-->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
