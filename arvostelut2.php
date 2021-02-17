@@ -54,6 +54,7 @@ mysqli_close($yhteys);
 
 print "Tiedot ovat tallennettu tietokantaan!";
 
+print $error;
 exit;
     
 ?>
