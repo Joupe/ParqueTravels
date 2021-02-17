@@ -1,5 +1,17 @@
 <?php
 
+$kohdemaa=$_POST["country"];
+$kohdekaupunki=$_POST[$kohdemaa];
+$matkan_pituus=$_POST["customRadio"];
+//$hinta=$_POST["kohdemaa"];
+$etunimi=$_POST["inputFName"];
+$sukunimi=$_POST["inputLName"];
+$osoite=$_POST["inputAddress"];
+$kaupunki=$_POST["inputCity"];
+$postinumero=$_POST["inputZip"];
+$email=$_POST["inputEmail4"];
+print("$kohdemaa, $kohdekaupunki, $matkan_pituus, $etunimi, $sukunimi, $osoite, $kaupunki, $postinumero, $email");
+/*
 $yhteys=mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
  if (!$yhteys){
  	die("Unable to connect".mysqli_error());
@@ -11,7 +23,7 @@ $yhteys=mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
  }
 
 $kohdemaa=$_POST["country"];
-//$kohdekaupunki=$_POST["kohdemaa"];
+$kohdekaupunki=$_POST[$kohdemaa];
 $matkan_pituus=$_POST["customRadio"];
 //$hinta=$_POST["kohdemaa"];
 $etunimi=$_POST["inputFName"];
@@ -21,13 +33,13 @@ $kaupunki=$_POST["inputCity"];
 $postinumero=$_POST["inputZip"];
 $email=$_POST["inputEmail4"];
 
-if(isset($_POST["submit"])){
-    $sql = "insert into parketti_varaukset(kohdemaa, kohdekaupunki, matkan_pituus, hinta, etunimi, sukunimi, osoite, kaupunki, postinumero, email) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+if(isset($_POST["submitf"])){
+    $sql = "INSERT INTO parketti_varaukset(kohdemaa, kohdekaupunki, matkan_pituus, hinta, etunimi, sukunimi, osoite, kaupunki, postinumero, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($yhteys, $sql);
     mysqli_stmt_bind_param($stmt, 'ssssssssss', $kohdemaa, $kohdekaupunki, $matkan_pituus, $hinta, $etunimi, $sukunimi, $osoite, $kaupunki, $postinumero, $email);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     mysqli_close($yhteys);
 }
-exit;
+exit;*/
 ?>
