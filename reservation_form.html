@@ -51,7 +51,7 @@
       
       <div class="col-lg-6 col-md-6 col-sm-6">
         <h3 class="form-title">Select the country</h3>
-        <select name="country" id="country" class="custom-select custom-select-lg mb-3" >
+        <select name="country" id="country" class="custom-select custom-select-lg mb-3" onchange="resetcities();">
             <option>Country</option>
             <option value="Sweden" data-target="Sweden" id="Sweden">Sweden</option>
             <option value="Norway" data-target="Norway" id="Norway">Norway</option>
@@ -62,8 +62,8 @@
           <br>
           <div style="display:none" id="country-Sweden">
             <h6 class="form-title">Select the city</h6>
-            <select name="Sweden" class="custom-select custom-select-lg mb-3">  
-            <option>City</option>   
+            <select name="Sweden" id="swedencity" class="custom-select custom-select-lg mb-3">  
+            <option id="swedendefault">City</option>   
             <option value="Stockholm" >Stockholm</option>       
             <option value="Gävle">Gävle</option>
             </select>
@@ -71,8 +71,8 @@
 
           <div style="display:none" id="country-Norway">
             <h6 class="form-title">Select the city</h6>
-             <select name="Norway" class="custom-select custom-select-lg mb-3"> 
-                <option>City</option>    
+             <select name="Norway" id="norwaycity" class="custom-select custom-select-lg mb-3"> 
+                <option id="norwaydefault">City</option>    
              <option value="Oslo">Oslo</option>       
              <option value="Bergen">Bergen</option>
             </select>
@@ -80,8 +80,8 @@
 
          <div style="display:none" id="country-Russia">
               <h6 class="form-title">Select the city</h6>
-             <select name="Russia" class="custom-select custom-select-lg mb-3">  
-                <option>City</option>   
+             <select name="Russia" id="russiacity" class="custom-select custom-select-lg mb-3">  
+                <option id="russiadefault">City</option>   
              <option value="Moscow" >Moscow</option>       
              <option value="Siberia">Siberia</option>
              <option value="St. Petersburg">St. Petersburg</option>
@@ -90,8 +90,8 @@
 
          <div style="display:none" id="country-Finland">
             <h6 class="form-title">Select the city</h6>
-            <select name="Finland" class="custom-select custom-select-lg mb-3">  
-            <option>City</option>   
+            <select name="Finland" id="finlandcity" class="custom-select custom-select-lg mb-3">  
+            <option id="finlanddefault">City</option>   
             <option value="Forssa" >Forssa</option>       
             <option value="Hervanta">Hervanta</option>
             <option value="Korso">Korso</option>
@@ -102,11 +102,11 @@
           <br>
           <h3 class="form-title">Length of the vacation</h3>
           <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+            <input type="radio" id="customRadio1" name="customRadio" value="4" class="custom-control-input">
             <label class="custom-control-label" for="customRadio1">4 days compact trip.</label>
           </div>
           <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+            <input type="radio" id="customRadio2" name="customRadio" value="7" class="custom-control-input">
             <label class="custom-control-label" for="customRadio2">7 days relaxing vacation.</label>
           </div>
          </div>
@@ -192,7 +192,51 @@
               });
             });
             </script>
-            
+            <script>
+              $(document).ready(function(){
+                $("#customRadio1").click(function(){
+                  $.post("hinnat.php",
+                  {
+                    country:$("#country").val(),
+                    sweden:$("#swedencity").val(),
+                    norway:$("#norwaycity").val(),
+                    russia:$("#russiacity").val(),
+                    finland:$("#finlandcity").val(),
+                    holidaytype:$(this).val()
+                 },
+                  function(data,status){
+                    $("#tulos").html(data);
+                  });
+                });
+              });
+              </script>
+              <script>
+              $(document).ready(function(){
+                $("#customRadio2").click(function(){
+                  $.post("hinnat.php",
+                  {
+                    country:$("#country").val(),
+                    sweden:$("#swedencity").val(),
+                    norway:$("#norwaycity").val(),
+                    russia:$("#russiacity").val(),
+                    finland:$("#finlandcity").val(),
+                    holidaytype:$(this).val()
+                 },
+                  function(data,status){
+                    $("#tulos").html(data);
+                  });
+                });
+              });
+              </script>
+              <script>
+                function resetcities(){
+                  finlanddefault.selected = true;
+                  norwaydefault.selected = true;
+                  swedendefault.selected = true;
+                  russiadefault.selected = true;
+                }
+              </script>
+
           </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4"> 
