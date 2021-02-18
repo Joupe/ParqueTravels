@@ -22,7 +22,7 @@ $yhteys = mysqli_connect("localhost","trtkp20a3","trtkp20a3passwd");
 
 // Tarkistetaan tietokannan yhteys
 if (!$yhteys) {
-    die("Yhteyden muodostaminen epäonnistui: " .mysql_connect_error());
+    print("Yhteyden muodostaminen epäonnistui!");
     return;
 }
 
@@ -30,7 +30,7 @@ if (!$yhteys) {
 $tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
 
 if(!$tietokanta) {
-    die("Tietokannan valinta epäonnistui: " .mysql_connect_error());
+    print("Tietokannan valinta epäonnistui!";
     exit;
 }
 
@@ -54,7 +54,6 @@ mysqli_close($yhteys);
 
 print "Tiedot ovat tallennettu tietokantaan!";
 
-print $error;
 exit;
     
 ?>

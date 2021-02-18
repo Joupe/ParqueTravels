@@ -174,12 +174,12 @@
     $tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
 
     if(!$tietokanta) {
-        die("Tietokannan valinta epäonnistui: " .mysql_connect_error());
+        print("Tietokannan valinta epäonnistui!";
         exit;
     }
     // echo "Tietokanta on OK."; // debug
 
-    $sql ="select * from parketti_arvostelut";
+    $sql ="select * from parketti_arvostelut"; // Aakkosjärjestykseen kaupunkien mukaan
     $tulos=mysqli_query($yhteys, $sql);
 
     while ($rivi=mysqli_fetch_assoc($tulos)) {
