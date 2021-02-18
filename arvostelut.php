@@ -45,6 +45,23 @@
 	  }
 
   </script>
+<!-- CSS style tablelle -->
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 15px;
+        background-color: #cce6ff;
+        
+    }
+    th {
+        padding: 15px;
+        text-align: left;
+        background-color: #3399ff;
+    }
+    </style>
  
 </head>
 <body>
@@ -135,7 +152,7 @@
 
     <h2>Arvostelut</h2>
 
-    <table border="1px">
+    <table>
         <tr>
             <th>Nickname</th>
             <th>Destination</th>

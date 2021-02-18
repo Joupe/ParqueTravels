@@ -5,11 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testi tietokanansta lukeminen</title>
+
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 15px;
+        background-color: #cce6ff;
+        
+    }
+    th {
+        padding: 15px;
+        text-align: left;
+        background-color: #3399ff;
+    }
+    </style>
 </head>
 <body>
 
 <h2>Arvostelut demo tietokannasta</h2>
-<table border="1px">
+<table>
     <tr>
         <th>Nickname</th>
         <th>Destination</th>
