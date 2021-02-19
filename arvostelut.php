@@ -6,6 +6,7 @@
   <meta name="description" content="Frequently Asked Questions about our travels.">
   <meta name="author" content="Waltteri Grek, Joona Heinonen, Joel Kailanto,Erik Kihn">
   <title>Arvostelut demo sivu, AJAX</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -13,11 +14,10 @@
   <link rel="stylesheet" type="text/css" href="css/finland.css">
   
  <!--jQuery-->
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
- integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ 
   <script>
     function sendData(form){
-      // tehdään olio
+      // tehdÃ¤Ã¤n olio
         var arvostelu=new Object();
         // olion attribuutteja
         arvostelu.nickname=form.nickname.value;
@@ -34,33 +34,45 @@
         // Call a function when the state changes.
         xmlhttp.onreadystatechange = function() { 
           if (this.readyState == 4 && this.status == 200) {
-            // Request valmista. Sitten processoidaan. Palauttaa php filen inputit message id:lle html:ssä. 
+            // Request valmista. Sitten processoidaan. Palauttaa php filen inputit message id:lle html:ssÃ¤. 
             document.getElementById("message").innerHTML = this.responseText;
           }
         };
-        // POST muodossa lähetetään
+        // POST muodossa lÃ¤hetetÃ¤Ã¤n
         xmlhttp.open("POST", "arvostelut2.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("arvostelu=" + x); // arvostelu on se avain ja x on JSON-stringi, joka läheteään eteenpäin
+        xmlhttp.send("arvostelu=" + x); // arvostelu on se avain ja x on JSON-stringi, joka lÃ¤heteÃ¤Ã¤n eteenpÃ¤in
 	  }
 
   </script>
 <!-- CSS style tablelle -->
 <style>
     table, th, td {
+	
         border: 1px solid black;
         border-collapse: collapse;
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+  	margin-right: auto;
     }
+	table{ 
+	width: 1500px;
+	}
     td {
-        padding: 15px;
-        background-color: #cce6ff;
-        
+        padding: 30px;
+        background-color: #afbbff;
+	color: black;
+	word-wrap: break-word;
     }
     th {
-        padding: 15px;
+	font-size: 150%;
+        padding: 30px;
         text-align: left;
-        background-color: #3399ff;
+        background-color: #2d2e3b;
+	color: white;
     }
+
     </style>
  
 </head>
@@ -102,20 +114,22 @@
 
       <!-- Content starts -->
 
-      <h2>Enter a review for a city</h2>
+      <br><br>
+	<h2 style="font-size:300%"><b>Please, review your customer experience!</b></h2>
+	<br>
       <form id="arvosteluarvot">
           <div class="form-group">
-            <label>Nickname:</label>
-            <input name="nickname" id="nickname" type="text"  value="" class="form-control" cols="50" />
-          </div>
-          <div class="form-group">
+            <label>Nickname:</label><br><br>
+            <input name="nickname" id="nickname" type="text" maxlength="20" value="" size="50">
+          </div><br>
+          <div class="form-group"><br>
             <!-- Valita maa ja sitten alavalikkoon kaupunki? -->
             <select id="kaupunki" name="kaupunki">
               <option value="Forssa">Forssa
-              <option value="Hervanta">Turku
+              <option value="Hervanta">Hervanta
               <option value="Korso">Korso
               <option value="Tukholma">Tukholma
-              <option value="Gavle">Gävle
+              <option value="Gavle">GÃ¤vle
               <option value="Stockholm">Stockholm
               <option value="Bergen">Bergen
               <option value="Oslo">Oslo  
@@ -123,24 +137,29 @@
               <option value="Siberia">Siberia
               <option value="St_Petersburg">St.Petersburg
               
-            </select><br>
+            </select><br><br>
           </div>
           <div class="form-group">
               <label for="arvostelu">Write a review!</label>
               <div>
-                <textarea id="atextarea" name="atextarea" value="" rows="5" cols="50" placeholder="Write the review here"></textarea>
+                <textarea id="atextarea" name="atextarea" value="" rows="5" cols="50" maxlength="200" placeholder="Write the review here, max. 200 characters."></textarea>
               </div>
           </div>
           <div class="form-group">
             <!-- Radio button-->
             <label for="rating">Rating:</label>
-            <div>
-              <svg><use href="#vihree" ></use></svg>
-                <label class="radio-inline"><input type="radio" id="rating" name="rating" value="3">Rating 3</label>
-                <svg><use href="#keltainen" ></use></svg>
-                <label class="radio-inline"><input type="radio" id="rating" name="rating" value="2">Rating 2</label>
-                <svg><use href="#punainen" ></use></svg>
-                <label class="radio-inline"><input type="radio" id="rating" name="rating" value="1">Rating 1</label>
+            <div class="tadaa">
+                <label class="radio-inline">
+		<svg><use href="#vihree" ></use></svg>
+		<input type="radio" id="rating" name="rating" value="3"></label>
+
+                <label class="radio-inline">
+		<svg><use href="#keltainen" ></use></svg>
+		<input type="radio" id="rating" name="rating" value="2"></label>
+
+                <label class="radio-inline">
+		<svg><use href="#punainen" ></use></svg>
+		<input type="radio" id="rating" name="rating" value="1"></label>
             </div>
         </div>
         <input type='button' name='ok' value='OK' onclick='sendData(this.form);' class="btn btn-primary" style="background-color: #2d2e3b;">
@@ -148,11 +167,11 @@
       </form>
 
       <p id="message"></p>
+	<br><br><br><br>
 
+    <h2 style="font-size:400%"><i><b>Customer reviews</b></i></h2><br>
 
-    <h2>Arvostelut</h2>
-
-    <table>
+    <table border="1px">
         <tr>
             <th>Nickname</th>
             <th>Destination</th>
@@ -160,7 +179,7 @@
             <th>Grade</th>
         </tr>
     <?php
-    // Koodin tarkoitus on ottaa tietokannasta arvostelut ja näyttää websivulle mitä siellä on
+    // Koodin tarkoitus on ottaa tietokannasta arvostelut ja nÃ¤yttÃ¤Ã¤ websivulle mitÃ¤ siellÃ¤ on
 
     // Tietokantaan yhteys
     $yhteys=mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
@@ -174,12 +193,12 @@
     $tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
 
     if(!$tietokanta) {
-        print("Tietokannan valinta epäonnistui!";
+        die("Tietokannan valinta epÃ¤onnistui: " .mysql_connect_error());
         exit;
     }
     // echo "Tietokanta on OK."; // debug
 
-    $sql ="select * from parketti_arvostelut"; // Aakkosjärjestykseen kaupunkien mukaan
+    $sql ="select * from parketti_arvostelut";
     $tulos=mysqli_query($yhteys, $sql);
 
     while ($rivi=mysqli_fetch_assoc($tulos)) {
@@ -194,11 +213,11 @@
     ?>
     
     
-    <!-- Vihree hymiö -->
+    <!-- Vihree hymiÃ¶ -->
 
     <svg>
       <symbol id="vihree" width="100" height="100">
-        <!-- cx ja cy ovat ympyrän keskipisteet. r on säde(radius). Stroke on ääriviiva. -->
+        <!-- cx ja cy ovat ympyrÃ¤n keskipisteet. r on sÃ¤de(radius). Stroke on Ã¤Ã¤riviiva. -->
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="green" />
         <!-- Rx ja ry ovat leveys ja pituus ellipsille. -->
         <ellipse cx="40" cy="40" rx="5" ry="8"
@@ -211,7 +230,7 @@
       </symbol>
      </svg> 
 
-     <!-- Keltainen hymiö -->
+     <!-- Keltainen hymiÃ¶ -->
     <svg >
       <symbol id="keltainen" width="100" height="100">
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow" />
@@ -224,7 +243,7 @@
       </symbol>
      </svg> 
 
-     <!-- Punainen hymiö -->
+     <!-- Punainen hymiÃ¶ -->
      <svg>
        <symbol id="punainen" width="100" height="100">
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
@@ -240,39 +259,110 @@
 
 <!-- Content ends-->
      
-<!-- Footer -->
+ <!-- Footer -->
   <div id="footer"></div>
   <div class="footer">
-  <div class="container features">
-    
+    <div class="container features">
+
       <div class="row">
+
         <div class="col-lg-4 col-md-4 col-sm-4">
           <h2 class="feature-title">Address</h2>
           <p class="footpara">Laminaatintie 24</p>
-          <p class="footpara">Hämynlinna, Finland</p>
-          
-        
-          
+          <p class="footpara">HÃ¤mynlinna, Finland</p>
+
+
+
+
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <h2 class="feature-title">Email</h2>
-          <p class="footpara">contact@parquetravels.org</p>
-          
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4"> 
-          <h2 class="feature-title">Social Media</h2>  
+          <p class="footpara">contact@parquetravels.ogr</p>
+          <h2 class="feature-title">Join our mailing list!</h2>
           <div style="text-align: center;">
-          <a class="linku" href="https://www.facebook.com/" >FACEBOOK</a><br><br>
-          <a class="linku" href="https://www.instagram.com/" >INSTAGRAM</a></div> <br>
-        
+            <form>
+              <input id='email' type='text' name='email' placeholder='Your email here.' value=''>
+            </form>
+            <br>
+            <button name='submit' id='submit'>Submit</button>
+
+            <p class="footpara" id="tulos"></p>
+
+            <script>
+              $(document).ready(function () {
+                $("#submit").click(function () {
+                  $.post("postilista.php",
+                    {
+                      email: $("#email").val()
+                    },
+                    function (data, status) {
+                      $("#tulos").html(data);
+                    });
+                });
+              });
+            </script>
+            <script>
+              $(document).ready(function () {
+                $("#customRadio1").click(function () {
+                  $.post("hinnat.php",
+                    {
+                      country: $("#country").val(),
+                      sweden: $("#swedencity").val(),
+                      norway: $("#norwaycity").val(),
+                      russia: $("#russiacity").val(),
+                      finland: $("#finlandcity").val(),
+                      holidaytype: $(this).val()
+                    },
+                    function (data, status) {
+                      $("#hinta").html(data);
+                    });
+                });
+              });
+            </script>
+            <script>
+              $(document).ready(function () {
+                $("#customRadio2").click(function () {
+                  $.post("hinnat.php",
+                    {
+                      country: $("#country").val(),
+                      sweden: $("#swedencity").val(),
+                      norway: $("#norwaycity").val(),
+                      russia: $("#russiacity").val(),
+                      finland: $("#finlandcity").val(),
+                      holidaytype: $(this).val()
+                    },
+                    function (data, status) {
+                      $("#hinta").html(data);
+                    });
+                });
+              });
+            </script>
+            <script>
+              function resetcities() {
+                finlanddefault.selected = true;
+                norwaydefault.selected = true;
+                swedendefault.selected = true;
+                russiadefault.selected = true;
+              }
+            </script>
+
+          </div>
         </div>
-      </div> 
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <h2 class="feature-title">Social Media</h2>
+          <div style="text-align: center;">
+            <a class="linku" href="https://www.facebook.com/">FACEBOOK</a><br><br>
+            <a class="linku" href="https://www.instagram.com/">INSTAGRAM</a>
+          </div> <br>
+
+
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
 
 
-  <!-- End Footer -->
-
+  <!-- Footer -->
   
   <!--JavaScript Library-->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"

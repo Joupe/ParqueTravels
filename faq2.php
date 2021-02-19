@@ -56,7 +56,8 @@
     <h3><b>Write your question to the form, and we will answer it as soon as possible!</b></h3>
     <br>
     <form action="lahetakysymys.php" method="post">
-      <h3>Ask anything from ParqueTravels:</h3> <br><input type="text" name="kysymys" value='' size="75"><br>
+      <h3>Ask anything from ParqueTravels:</h3> <br>
+      <input type="text" name="kysymys" value='' size="75"><br>
       <br>
       <input type="submit" name="ok" value="Send"><br>
 
