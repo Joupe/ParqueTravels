@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Frequently Asked Questions about our travels.">
   <meta name="author" content="Waltteri Grek, Joona Heinonen, Joel Kailanto,Erik Kihn">
-  <title>Arvostelut demo sivu, AJAX</title>
+  <title>Arvostelut sivu, AJAX</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
@@ -17,7 +17,7 @@
  
   <script>
     function sendData(form){
-      // tehdÃ¤Ã¤n olio
+      // tehdään olio
         var arvostelu=new Object();
         // olion attribuutteja
         arvostelu.nickname=form.nickname.value;
@@ -41,7 +41,7 @@
         // POST muodossa lÃ¤hetetÃ¤Ã¤n
         xmlhttp.open("POST", "arvostelut2.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("arvostelu=" + x); // arvostelu on se avain ja x on JSON-stringi, joka lÃ¤heteÃ¤Ã¤n eteenpÃ¤in
+        xmlhttp.send("arvostelu=" + x); // arvostelu on se avain ja x on JSON-stringi, joka lähetetään eteenpÃ¤in
 	  }
 
   </script>
@@ -129,7 +129,7 @@
               <option value="Hervanta">Hervanta
               <option value="Korso">Korso
               <option value="Tukholma">Tukholma
-              <option value="Gavle">GÃ¤vle
+              <option value="Gavle">Gävle
               <option value="Stockholm">Stockholm
               <option value="Bergen">Bergen
               <option value="Oslo">Oslo  
@@ -146,10 +146,10 @@
               </div>
           </div>
           <div class="form-group">
-            <!-- Radio button-->
+          <!-- Radio button-->
             <label for="rating">Rating:</label>
-            <div class="tadaa">
-                <label class="radio-inline">
+          <div class="tadaa">
+            <label class="radio-inline">
 		<svg><use href="#vihree" ></use></svg>
 		<input type="radio" id="rating" name="rating" value="3"></label>
 
@@ -171,7 +171,7 @@
 
     <h2 style="font-size:400%"><i><b>Customer reviews</b></i></h2><br>
 
-    <table border="1px">
+    <table>
         <tr>
             <th>Nickname</th>
             <th>Destination</th>
