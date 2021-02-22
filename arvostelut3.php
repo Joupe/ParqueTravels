@@ -48,7 +48,7 @@ if (!$yhteys) {
 $tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
 
 if(!$tietokanta) {
-    die("Tietokannan valinta epäonnistui: " .mysql_connect_error());
+    print("Tietokannan valinta epäonnistui");
     exit;
 }
 // echo "Tietokanta on OK."; // debug

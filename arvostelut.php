@@ -34,14 +34,14 @@
         // Call a function when the state changes.
         xmlhttp.onreadystatechange = function() { 
           if (this.readyState == 4 && this.status == 200) {
-            // Request valmista. Sitten processoidaan. Palauttaa php filen inputit message id:lle html:ssÃ¤. 
+            // Request valmista. Sitten processoidaan. Palauttaa php filen inputit message id:lle html:ssä. 
             document.getElementById("message").innerHTML = this.responseText;
           }
         };
-        // POST muodossa lÃ¤hetetÃ¤Ã¤n
+        // POST muodossa lähetetään
         xmlhttp.open("POST", "arvostelut2.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("arvostelu=" + x); // arvostelu on se avain ja x on JSON-stringi, joka lähetetään eteenpÃ¤in
+        xmlhttp.send("arvostelu=" + x); // arvostelu on se avain ja x on JSON-stringi, joka lähetetään eteenpäin
 	  }
 
   </script>
@@ -193,12 +193,12 @@
     $tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
 
     if(!$tietokanta) {
-        die("Tietokannan valinta epÃ¤onnistui: " .mysql_connect_error());
+        die("Tietokannan valinta epäonnistui: " .mysql_connect_error());
         exit;
     }
     // echo "Tietokanta on OK."; // debug
 
-    $sql ="select * from parketti_arvostelut";
+    $sql ="select * from parketti_arvostelut order by kohdekaupunki";
     $tulos=mysqli_query($yhteys, $sql);
 
     while ($rivi=mysqli_fetch_assoc($tulos)) {
@@ -213,7 +213,7 @@
     ?>
     
     
-    <!-- Vihree hymiÃ¶ -->
+    <!-- Vihree hymiö -->
 
     <svg>
       <symbol id="vihree" width="100" height="100">
@@ -230,7 +230,7 @@
       </symbol>
      </svg> 
 
-     <!-- Keltainen hymiÃ¶ -->
+     <!-- Keltainen hymiö -->
     <svg >
       <symbol id="keltainen" width="100" height="100">
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow" />
@@ -243,7 +243,7 @@
       </symbol>
      </svg> 
 
-     <!-- Punainen hymiÃ¶ -->
+     <!-- Punainen hymiö -->
      <svg>
        <symbol id="punainen" width="100" height="100">
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
