@@ -48,29 +48,28 @@
 <!-- CSS style tablelle -->
 <style>
     table, th, td {
-	
-        border: 1px solid black;
-        border-collapse: collapse;
-	justify-content: center;
-	align-items: center;
-	margin-left: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+	  justify-content: center;
+	  align-items: center;
+	  margin-left: auto;
   	margin-right: auto;
     }
 	table{ 
-	width: 1500px;
+	  width: 1500px;
 	}
-    td {
-        padding: 30px;
-        background-color: #afbbff;
-	color: black;
-	word-wrap: break-word;
+  td {
+    padding: 30px;
+    background-color: #afbbff;
+	  color: black;
+	  word-wrap: break-word;
     }
     th {
 	font-size: 150%;
-        padding: 30px;
-        text-align: left;
-        background-color: #2d2e3b;
-	color: white;
+    padding: 30px;
+    text-align: left;
+    background-color: #2d2e3b;
+	  color: white;
     }
 
     </style>
