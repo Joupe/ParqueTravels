@@ -57,5 +57,6 @@ mysqli_stmt_close($stmt);
 exit;
 }
 ?>
+<a href="faq2.php"><center>FAQ-sivulle</center></a>
 </body>
 </html>

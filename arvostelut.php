@@ -13,8 +13,8 @@
   <link rel="stylesheet" type="text/css" href="css/new.css">
   <link rel="stylesheet" type="text/css" href="css/finland.css">
   
- <!--jQuery-->
- 
+  <!--jQuery-->
+  
   <script>
     function sendData(form){
       // tehdään olio
@@ -216,7 +216,7 @@
 
     <svg>
       <symbol id="vihree" width="100" height="100">
-        <!-- cx ja cy ovat ympyrÃ¤n keskipisteet. r on sÃ¤de(radius). Stroke on Ã¤Ã¤riviiva. -->
+        <!-- cx ja cy ovat ympyrän keskipisteet. r on säde(radius). Stroke on ääriviiva. -->
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="green" />
         <!-- Rx ja ry ovat leveys ja pituus ellipsille. -->
         <ellipse cx="40" cy="40" rx="5" ry="8"
@@ -227,9 +227,9 @@
         <path class="suu" d="M 30,60 Q 47,85 70,60" style="stroke:black;stroke-width:3; fill:transparent;" />
         Sorry, your browser does not support inline SVG.
       </symbol>
-     </svg> 
+    </svg> 
 
-     <!-- Keltainen hymiö -->
+    <!-- Keltainen hymiö -->
     <svg >
       <symbol id="keltainen" width="100" height="100">
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow" />
@@ -240,11 +240,11 @@
         <line class="suu" x1="30" y1="65" x2="70" y2="65" style="stroke:rgb(0, 0, 0);stroke-width:3" />
         Sorry, your browser does not support inline SVG.
       </symbol>
-     </svg> 
+    </svg> 
 
-     <!-- Punainen hymiö -->
-     <svg>
-       <symbol id="punainen" width="100" height="100">
+    <!-- Punainen hymiö -->
+    <svg>
+      <symbol id="punainen" width="100" height="100">
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
         <ellipse cx="40" cy="40" rx="5" ry="8"
         style="fill:black;" />
@@ -254,11 +254,11 @@
         <path class="suu" d="M 30,70 Q 47,45 70,70" style="stroke:black;stroke-width:3; fill:transparent;" />
         Sorry, your browser does not support inline SVG.
       </symbol>
-     </svg> 
+    </svg> 
 
 <!-- Content ends-->
-     
- <!-- Footer -->
+
+<!-- Footer -->
   <div id="footer"></div>
   <div class="footer">
     <div class="container features">
@@ -366,7 +366,6 @@
   <!--JavaScript Library-->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  
 
 </body>
 </html>
